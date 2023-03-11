@@ -1,16 +1,32 @@
 
-import { useState, useEffect } from 'react';
+
 import './index.css' 
-import logo from './assets/logo.png'
+import logo from '../assets/logo.png'
 import React from 'react'
-import characters from '../../App.js'
+import { useState, useEffect } from 'react';
+import characters from '../Cards/index'
+
 
 const Characters = () => {
+    const [searchVal, setSearchVal] = useState('');
+    const [filteredResults, setFilteredResults] = useState([]);
+    const searchItems = (searchItem) => {
+        setSearchVal(searchItem)
+        if (searchVal !== '') {
+            const filteredData = characters.filter((item) => {
+                return Object.values(item).join('').toLowerCase().includes(searchVal.toLowerCase())
+                })   
+                setFilteredResults(filteredData)
+        }   else {
+            setFilteredResults(characters)
+        }
+        
+    }
     return (
         <>
             <div className='header'>
                 <img src={logo} alt='rick and morty'></img>
-                <input type='text' className='user-input' placeholder='Filter by name...'></input>
+                <input icon='search' type='text' onChange={(e) => searchItems(e.target.value)} className='user-input' placeholder='Filter by name...'></input>
             </div>
         </>
     )

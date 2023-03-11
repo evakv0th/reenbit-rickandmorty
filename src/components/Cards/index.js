@@ -19,10 +19,15 @@ const Cards = () => {
     }
     fetchData();
     }, []);
+    // setCharacters(characters.name.sort((a,b) => a-b))
 
   return (
     <div className='card'>
-      {characters.map((character) => {
+      {characters.sort(function(a, b) {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  }).map((character) => {
         return (
           <div key={character.id}>
           <section className='box'>
