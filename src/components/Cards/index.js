@@ -5,25 +5,38 @@ import { useState, useEffect } from 'react';
 import React from 'react'
 
 const Cards = () => {
-  let api = `https://rickandmortyapi.com/api/character/`;
+  const [searchVal, setSearchVal] = useState('');
   const [characters, setCharacters] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
+  const [hasResults, setHasResults] = useState(true);
+  
+   async function fetchData() {
       try {
-        const response = await fetch(api)
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${searchVal}`)
         const data = await response.json();
         setCharacters(data.results);
+        setHasResults(data.length > 0)
       } catch (e) {
         console.log('error', e);
       }
     }
-    fetchData();
-    }, []);
-    // setCharacters(characters.name.sort((a,b) => a-b))
+  
+
+    useEffect(() => {
+      fetchData();
+    }, [searchVal])
+
+ 
+    const searchItems = (searchItem) => {
+      setSearchVal(searchItem)
+      
+    }
 
   return (
-    <div className='card'>
-      {characters.sort(function(a, b) {
+    <div>
+    <input icon='search' type='text' onChange={(e) => searchItems(e.target.value)} className='user-input' placeholder='Filter by name...'></input>
+    <div  className='card'>
+      {(!hasResults) ? (
+        characters.sort(function(a, b) {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
@@ -34,11 +47,13 @@ const Cards = () => {
             <img alt={character.name} src={character.image}></img>
             <h2>{character.name}</h2>
             <p>{character.species}</p>
-            </section>
+            </section> 
           </div>
         )
-      })}
-    
+      })
+      ) : (<p>No results found, please reload the page</p>)
+      }
+      </div>
     </div>
   );
 }
