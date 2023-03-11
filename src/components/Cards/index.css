@@ -1,0 +1,12 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    padding: auto;
+}
+h2, img {
+    position: relative;
+}
+.box {
+    border-radius: 50px 0 0 50px;
+    margin: 10px;
+}
