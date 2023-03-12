@@ -35,7 +35,7 @@ const Cards = () => {
       <img src={logo} alt='rick and morty' className='header'></img>
       <input icon='search' type='text' value={searchVal} onChange={(e) => searchItems(e.target.value)} className='user-input' placeholder='Filter by name...'></input>
       <div className='card'>
-        {characters.length > 0 ? 
+        {characters && characters.length > 0 ? 
           characters.sort(function(a, b) {
             if (a.name < b.name) return -1;
             if (a.name > b.name) return 1;
