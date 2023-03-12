@@ -4,7 +4,7 @@
     font-family: 'Roboto', sans-serif;
 }
 .box h2 {
-    max-width: 320px; /* or any other value that works for your design */
+    max-width: 300px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
