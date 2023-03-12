@@ -1,17 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 * {
     background: #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+}
+.box h2 {
+    max-width: 320px; /* or any other value that works for your design */
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 18px;
+    padding: 0 0 0 5%;
+    background-color: #fff;
+  }
+  .box p {
+    position: relative;
+    max-width: 320px;
+    font-size: 14px;
+    padding: 0 0 3% 5%;
+    background-color: #fff;
+  }
+  .box p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: white; 
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+  }
+div.box {
+    border: 10px;
 }
 div.card{
     display: flex;
     flex-wrap: wrap;
     padding: auto;
+    justify-content: center;
 }
 h2.box, img.box {
+    text-align: center;
     position: relative;
+    text-decoration: none;
+    border-radius: 50px;
+}
+img {
+    border-radius: 5%;
 }
 .box {
-    border-radius: 50px 0 0 50px;
     margin: 10px;
+    color: black; 
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 5%;
+    overflow: hidden; 
+    position: relative;
+}
+h2 {
+    overflow-wrap: break-word;
+}
+.box > h2 {
+    font-weight: 900;
+    
+}
+.box > p {
+    font-weight: 700;
 }
 .user-input[type=text]{
     padding-left: 2%;
@@ -30,4 +86,8 @@ img.header  {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
+}
+
+.box:hover > h2, .box:hover > p {
+    color: lightcoral;
 }

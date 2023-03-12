@@ -18,7 +18,8 @@ const Characters = (props) => {
 
   return (
             <div>
-             <Link to="/">Go back to list</Link>
+             <Link to="/" className='link'> &#8592; GO BACK</Link>
+             <div className='main'>
             <img src={character.image} alt={character.name} />
             <h1>{character.name}</h1>
             <p className='info-char'>Information</p>
@@ -31,8 +32,9 @@ const Characters = (props) => {
             <p>{character.species}</p>
             <h2>Origin</h2>
             <p>{character.origin ? character.origin.name : 'unknown'}</p>
-            <h2>type</h2>
+            <h2>Type</h2>
             <p>{character.type ? character.type : 'unknown'}</p>
+            </div>
             </div>
          </div> 
          )

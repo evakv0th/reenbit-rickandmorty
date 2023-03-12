@@ -42,13 +42,13 @@ const Cards = () => {
             return 0;
           }).map((character) => {
             return (
-              <div key={character.id}>
-                <Link to={`/character/${character.id}`}>
-                  <section className='box'>
+              <div key={character.id} className='single-card'>
+                <Link to={`/character/${character.id}`} style={{ textDecoration: 'none' }} className='linker'>
+                  <div className='box'>
                     <img alt={character.name} src={character.image}></img>
                     <h2>{character.name}</h2>
                     <p>{character.species}</p>
-                  </section>
+                  </div>
                 </Link>
               </div>
             )
