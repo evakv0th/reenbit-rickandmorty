@@ -4,6 +4,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Characters from './components/Characters';
 
+
+
 function App() {
   return (
     <Router>
@@ -13,7 +15,7 @@ function App() {
     </Routes>
   </Router>
   )
-  
 }
+
 
 export default App;
